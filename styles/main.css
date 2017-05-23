@@ -1,21 +1,110 @@
 /* general styles */
-body {
+body, a {
 	color: #191b1c;
 	font-size: 18px;
 	font-family: 'Open Sans', sans-serif;
 }
 
-/* navbar */
-nav {
-	width: 100%;
-	height: 50px;
-	border-bottom: 1px solid #7f7f7f;
-}
-
-.nav-links a {
-	text-transform: uppercase;
-}
-
 a {
 	text-decoration: none;
+}
+
+/* navbar */
+nav {
+	justify-content: space-between;
+	align-items: center;
+}
+
+nav, footer {
+	width: 100%;
+	height: 70px;
+	display: inline-flex;
+	font-weight: 600;
+}
+
+.nav-logo {
+	margin-left: 20px;
+}
+
+.nav-links a,
+.nav-logo h3 {
+	padding-left: 5px;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+}
+
+.nav-links li {
+	padding-right: 20px;
+	display: inline-flex;
+}
+
+.nav-links ul {
+	float: right;
+}
+
+/* main content */
+.main-content {
+	min-height: 900px;
+	width: 100%;
+	display: flex;
+}
+
+.main-content {
+	justify-content: center;
+	flex-direction: column;
+	background-image: url('../assets/images/montylov-206782.jpg');
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: top;
+}
+
+.parent-div {
+	width: 100%;
+}
+
+.main-text {
+	max-width: 50%;
+	margin: 0 auto;
+	padding-right: 50px;
+	text-align: right;
+	color: #fff;
+	font-size: 1.5em;
+	line-height: 1.5em;
+	float: right !important;
+}
+
+/* about */
+#about, 
+#whisper {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#about {
+	height: 400px;
+}
+
+.about-content {
+	max-width: 70%;
+	font-size: 1.2em;
+	text-align: center;
+	font-style: italic;
+	line-height: 1.5em;
+	font-weight: lighter;
+	color: #636363;
+}
+
+#whisper {
+	margin: 30px;
+}
+
+footer {
+	margin-top: 10px;
+	align-items: center;
+	justify-content: center;
+}
+
+.footer-links i {
+	padding-right: 15px;
 }
