@@ -82,7 +82,8 @@ nav, footer {
 }
 
 #about {
-	height: 400px;
+	margin-top: 15px;
+	min-height: 400px;
 }
 
 .about-content {
@@ -175,4 +176,8 @@ footer {
 .footer-links i {
 	padding-right: 15px;
 	cursor: pointer;
+}
+
+@media screen {
+	
 }
