@@ -17,4 +17,23 @@ $(function() {
 
 		$('html, body').animate({scrollTop:offsetTop}, 800)
 	}
+
+	// pulling json for blog page
+	$.getJSON('js/posts.json', function(data){
+		var stories = [];
+
+		// $.each(data, function(key, val){
+		// 	stories.push("<p id='" + JSON.stringify(key) + "'>" + JSON.stringify(val) + "</p>")
+		// })
+
+		// $("<div>", {
+		// 	"class": "subway-whispers",
+		// 	html: stories.join("")
+		// }).appendTo('.page-wrapper');
+
+	})
+
+	// try ajax 
+	// and then use success to return data and pass 
+	// onto another function and display it nicely 
 });
