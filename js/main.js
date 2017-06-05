@@ -9,7 +9,7 @@ $(function() {
 	//$('#user-form > button').on('click', parseFormData)
 	$('#subway-line-btn').on('click', subwayDropdown)
 	$('#user-form > div > div > div > ul > li').on('click', calculateTrain)
-	$('form').submit(parseFormData)
+	//$('form').submit(parseFormData)
 
 	// functions
 
@@ -60,32 +60,65 @@ $(function() {
 		$('html, body').animate({scrollTop:offsetTop}, 800)
 	}
 
-	// parsing form data when submitting whisper
-	function parseFormData(){
-		
-		var subwayLine = subway
+	$('form').submit(function(event){
+		event.preventDefault();
 
-		var formData = {
-			'name': $('input[type="text"]:nth-child(1)').val(),
-			'email': $('input[type="text"]:nth-child(2)').val(),
-			'whisper': $('#user-form > textarea').val(),
-			'subway': subway,
-			'when': $('input[type="date"]').val()
-		}
-		
-		console.log('form data: ', formData)
+		var data = {},
+			Form = this;
 
-		$.ajax({
-			type: 'POST',
-			url: 'posts.json',
-			data: formData,
-			datatype: 'jsonp'
-		}).done(function(){
-			console.log(data)
+		$.each(this.elements, function(i, v){
+			var input = $(v);
+			data[input.attr('name')] = input.val();
+			delete data['undefined'];
 		})
 
-		event.preventDefault()
-	} 
+		$.ajax({
+	        cache: false,
+	        url : "js/posts.json",
+	        type: "POST",
+	        dataType : "json",
+	        data : JSON.stringify(data),
+	        context : Form,
+	        success : function(callback){
+	            //Where $(this) => context == FORM
+	            //console.log(JSON.parse(callback));
+	            $(this).html("Successfully submited the form!");
+	        },
+	        error : function(){
+	            $(this).html("Unknown error has occurred. Please reload the page.");
+	        }
+		})
+	})
+});
+
+/*
+	// parsing form data when submitting whisper
+	// function parseFormData(){
+		
+	// 	var subwayLine = subway
+
+	// 	var formData = {
+	// 		'name': $('input[type="text"]:nth-child(1)').val(),
+	// 		'email': $('input[type="text"]:nth-child(2)').val(),
+	// 		'whisper': $('#user-form > textarea').val(),
+	// 		'subway': subway,
+	// 		'when': $('input[type="date"]').val()
+	// 	}
+		
+	// 	console.log('form data: ', formData)
+
+	// 	$.ajax({
+	// 		type: 'POST',
+	// 		url: '/js/posts.json',
+	// 		data: formData,
+	// 		datatype: 'jsonp',
+	// 		contentType: 'application/json'
+	// 	}).done(function(){
+	// 		console.log(data)
+	// 	})
+
+	// 	event.preventDefault()
+	// } 
 
 	// post parsed data
 
@@ -94,24 +127,24 @@ $(function() {
 	// BLOG PAGE FUNCTIONS
 
 	// pulling json for blog page
-	$.getJSON('js/posts.json', function(data){
-		var stories = [];
+	// $.getJSON('js/posts.json', function(data){
+	// 	var stories = [];
 
-		// $.each(data, function(key, val){
-		// 	stories.push("<p id='" + JSON.stringify(key) + "'>" + JSON.stringify(val) + "</p>")
-		// })
+	// 	// $.each(data, function(key, val){
+	// 	// 	stories.push("<p id='" + JSON.stringify(key) + "'>" + JSON.stringify(val) + "</p>")
+	// 	// })
 
-		// $("<div>", {
-		// 	"class": "subway-whispers",
-		// 	html: stories.join("")
-		// }).appendTo('.page-wrapper');
+	// 	// $("<div>", {
+	// 	// 	"class": "subway-whispers",
+	// 	// 	html: stories.join("")
+	// 	// }).appendTo('.page-wrapper');
 
-	})
+	// })
 
 	// try ajax 
 	// and then use success to return data and pass 
 	// onto another function and display it nicely 
-});
+
 
 
 // BUGS 
@@ -121,5 +154,5 @@ $(function() {
 // make sure that dropdown list is not expanding buttons div
 
 
-
+*/
 
