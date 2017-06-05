@@ -10,6 +10,7 @@ $(function() {
 	$('#subway-line-btn').on('click', subwayDropdown)
 	$('#user-form > div > div > div > ul > li').on('click', calculateTrain)
 	//$('form').submit(parseFormData)
+	$('#user-form > button').on('click', getAllWhispers)
 
 	// functions
 
@@ -38,15 +39,13 @@ $(function() {
 		event.preventDefault();
 
 		// determine which element was clicked, save
-		var subway = this.id;
+		subway = this.id;
 		console.log('train N ', subway)
 		
 		// set value to be displayed on the button
 		$('#subway-line-btn').replaceWith('<button id="subway-line-btn">Subway line: ' + subway + '</button>');
 		// collapse subway list
 		$('#user-form > div > div > div').removeClass('active').addClass('hidden').slideUp('slow')
-
-		return subway
 	}
 
 	// page scroll
@@ -66,6 +65,8 @@ $(function() {
 		var data = {},
 			Form = this;
 
+		console.log(Form);
+
 		$.each(this.elements, function(i, v){
 			var input = $(v);
 			data[input.attr('name')] = input.val();
@@ -74,7 +75,7 @@ $(function() {
 
 		$.ajax({
 	        cache: false,
-	        url : "js/posts.json",
+	        url : "https://subwaywhispers.firebaseio.com/whispers/posts.json",
 	        type: "POST",
 	        dataType : "json",
 	        data : JSON.stringify(data),
@@ -89,6 +90,18 @@ $(function() {
 	        }
 		})
 	})
+
+	function getAllWhispers(){
+		$.ajax({
+			url: "https://subwaywhispers.firebaseio.com/whispers/posts.json",
+			type: "GET",
+			dataType: "json",
+			success: function(resp){
+				console.log(resp)
+			}
+			// data: JSON.stringify(data)
+		})
+	}
 });
 
 /*
