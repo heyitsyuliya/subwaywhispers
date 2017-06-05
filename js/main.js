@@ -16,6 +16,7 @@ $(function() {
 	// subway dropdown menu
 	function subwayDropdown(event){
 
+		event.preventDefault()
 		// dropdown collapses when button was clicked
 		if ($('#user-form > div > div > div').hasClass('active')){
 			$('#user-form > div > div > div').removeClass('active').addClass('hidden').slideUp('slow')
@@ -65,11 +66,11 @@ $(function() {
 		var subwayLine = subway
 
 		var formData = {
-			'name': $('#user-form > form > input[type="text"]:nth-child(1)').val(),
-			'email': $('#user-form > form > input[type="text"]:nth-child(2)').val(),
+			'name': $('input[type="text"]:nth-child(1)').val(),
+			'email': $('input[type="text"]:nth-child(2)').val(),
 			'whisper': $('#user-form > textarea').val(),
 			'subway': subway,
-			'when': $('#user-form > div > form > input[type="date"]').val()
+			'when': $('input[type="date"]').val()
 		}
 		
 		console.log('form data: ', formData)
@@ -117,7 +118,7 @@ $(function() {
 
 // when subway line is chosen, user can't choose another subway line
 // subway variable is not defined
-
+// make sure that dropdown list is not expanding buttons div
 
 
 

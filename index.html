@@ -11,14 +11,14 @@
 	<link rel="stylesheet" type="text/css" href="styles/main.css">
 	<link rel="shortcut icon" type="image/svg" href="assets/nyc-subway-icons/svg/s.svg">
 
-	<title>Missed Connections</title>
+	<title>Subway Whispers</title>
 </head>
 
 <body>
 	<nav class="navbar">
 
 		<div class="nav-logo">
-			<h3>Missed Connections</h3>
+			<h3>Subway Whispers</h3>
 		</div><!-- nav-logo -->
 
 		<div class="nav-links">
@@ -57,32 +57,22 @@
 				</p>
 			</div>
 		</div><!-- about -->
-
-<!-- 		<div id="whisper">
-			<div>
-				<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSerGv19MTYMJfpAjCzKARwClcJnhZDj_DwqvMBZm65leCU2FA/viewform?embedded=true#start=embed" width="760" height="500" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
-			</div>
-		</div> -->
-
+		
+		<!-- form -->
 		<div id="whisper">
-			<div id="user-form">	
+			<form id="user-form">	
 
-				<form class="name-and-email">
+				<div class="name-and-email">
 					<input type="text" name="email" placeholder="Email">
 					<input type="text" name="name" placeholder="Name">
-				</form>
+				</div><!-- name-and-email -->
 
 				<textarea rows="10" name="whisper-about" placeholder="What would you like to whisper about?"></textarea>
-				<!-- 
-					drpdown menu 
-				-->
 
 				<div class="buttons">
 					<!-- date button -->
-					<form>
-						<input type="date" name="date">
-					</form>
-				
+					<input type="date" name="date">
+		
 					<!-- dropdown list with subway lines -->
 					<div class="dropdown">
 						<button id="subway-line-btn">Subway line</button>
@@ -117,23 +107,18 @@
 				</div><!-- buttons -->
 					
 				<button type="submit">Submit a story</button>
-				
-			</div>
-		</div>
+			</form>
+		</div><!-- whisper -->
 
 		<footer>
 			<div class="footer-links">
 
 				<a href="https://github.com/yuliyakndr"><i class="fa fa-github fa-2x" aria-hidden="true"></i></a>
-
 				<a href="https://angel.co/yuliyak"><i class="fa fa-angellist fa-2x" aria-hidden="true"></i></a>
-
-				<!-- make this to open email app -->
 				<a href="mailto:ykandratsyeva@gmail.com"><i class="fa fa-envelope-open-o fa-2x" aria-hidden="true"></i></a>
 
 			</div><!-- footer-links -->
 		</footer>
-
 	</div><!-- page-wrapper-->
 
 	<!-- importing js files -->
