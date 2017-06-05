@@ -102,11 +102,13 @@ nav, footer {
 	min-height: 400px;
 	width: 60%;
 	align-content: center;
+	top: 0px;
 }
 
 #user-form {
 	display: flex;
 	flex-direction: column;
+	flex-wrap: wrap;
 }
 
 .name-and-email {
@@ -161,9 +163,34 @@ button {
 }
 
 /*dropdown list*/
+.dropdown-content {
+	max-height: 150px;
+	overflow: scroll;
+}
+
 .dropdown-content li img {
 	height: 30px;
 	width: 30px;
+	padding: 5px;
+}
+
+.hidden {
+	display: none;
+}
+
+.active,
+.hidden {
+	padding-top: 7px;
+	max-height: 120px;
+	overflow: scroll;
+	align-content: center;
+}
+
+.active > ul > li,
+.hidden > ul > li {
+	border: 0.5px solid #bcbcbc;
+	border-top: none;
+	text-align: center;
 }
 
 /*footer*/
