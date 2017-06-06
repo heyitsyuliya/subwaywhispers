@@ -30,21 +30,19 @@ $(function() {
 		}
 	}
 	
-	//var subway;
-
 	function calculateTrain(){
 	
 		event.preventDefault();
 
 		// determine which element was clicked, save
-		subway = this.id;
-		console.log('train N ', subway)
+		var subway = this.id;
+		//console.log('train N ', subway)
 		
 		// set value to be displayed on the button
 		$('#subway-line-btn').replaceWith('<button id="subway-line-btn">Subway line: ' + subway + '</button>');
 		// collapse subway list
 		$('#user-form > div > div > div').removeClass('active').addClass('hidden').slideUp('slow')
-		
+		console.log('train number ', subway)
 		return subway
 	}
 
@@ -61,11 +59,10 @@ $(function() {
 
 	$('form').submit(function(event){
 		event.preventDefault();
-		
+		var subway = calculateTrain();
+
 		var data = {},
 			Form = this;
-
-		console.log(Form);
 
 		$.each(this.elements, function(i, v){
 			var input = $(v);
