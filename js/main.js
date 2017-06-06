@@ -6,11 +6,9 @@ $(function() {
 	// events
 	$('.nav-links > ul > li:nth-child(1) > a').on('click', slideContent)
 	$('.nav-links > ul > li:nth-child(2) > a').on('click', slideContent)
-	//$('#user-form > button').on('click', parseFormData)
 	$('#subway-line-btn').on('click', subwayDropdown)
 	$('#user-form > div > div > div > ul > li').on('click', calculateTrain)
-	//$('form').submit(parseFormData)
-	$('#user-form > button').on('click', getAllWhispers)
+	// $('#user-form > button').on('click', getAllWhispers)
 
 	// functions
 
@@ -32,7 +30,7 @@ $(function() {
 		}
 	}
 	
-	var subway;
+	//var subway;
 
 	function calculateTrain(){
 	
@@ -46,6 +44,8 @@ $(function() {
 		$('#subway-line-btn').replaceWith('<button id="subway-line-btn">Subway line: ' + subway + '</button>');
 		// collapse subway list
 		$('#user-form > div > div > div').removeClass('active').addClass('hidden').slideUp('slow')
+		
+		return subway
 	}
 
 	// page scroll
@@ -61,7 +61,7 @@ $(function() {
 
 	$('form').submit(function(event){
 		event.preventDefault();
-
+		
 		var data = {},
 			Form = this;
 
@@ -70,7 +70,7 @@ $(function() {
 		$.each(this.elements, function(i, v){
 			var input = $(v);
 			data[input.attr('name')] = input.val();
-			delete data['undefined'];
+			//delete data['undefined'];
 		})
 
 		$.ajax({
@@ -81,7 +81,8 @@ $(function() {
 	        data : JSON.stringify(data),
 	        context : Form,
 	        success : function(callback){
-	            //Where $(this) => context == FORM
+	            //Where 
+	            //$(this) => context == FORM
 	            //console.log(JSON.parse(callback));
 	            $(this).html("Successfully submited the form!");
 	        },
@@ -89,83 +90,30 @@ $(function() {
 	            $(this).html("Unknown error has occurred. Please reload the page.");
 	        }
 		})
+
+		// var formData = {
+		// 	'email': $('input[type="text"]:nth-child(1)'),
+		// 	'name': $('input[type="text"]:nth-child(2)'),
+		// 	'whisper-about': $('#user-form > textarea'),
+		// 	'date': $('input[type="date"]'),
+		// 	'subway': subway
+		// }
+
+		// $.ajax({
+		// 	type: "POST",
+		// 	url: "https://subwaywhispers.firebaseio.com/whispers/posts.json",
+		// 	data: formData,
+		// 	dataType: "json",
+		// 	encode: true
+		// }).done(function(data){
+		// 	console.log(data)
+		// })
 	})
-
-	function getAllWhispers(){
-		$.ajax({
-			url: "https://subwaywhispers.firebaseio.com/whispers/posts.json",
-			type: "GET",
-			dataType: "json",
-			success: function(resp){
-				console.log(resp)
-			}
-			// data: JSON.stringify(data)
-		})
-	}
 });
-
-/*
-	// parsing form data when submitting whisper
-	// function parseFormData(){
-		
-	// 	var subwayLine = subway
-
-	// 	var formData = {
-	// 		'name': $('input[type="text"]:nth-child(1)').val(),
-	// 		'email': $('input[type="text"]:nth-child(2)').val(),
-	// 		'whisper': $('#user-form > textarea').val(),
-	// 		'subway': subway,
-	// 		'when': $('input[type="date"]').val()
-	// 	}
-		
-	// 	console.log('form data: ', formData)
-
-	// 	$.ajax({
-	// 		type: 'POST',
-	// 		url: '/js/posts.json',
-	// 		data: formData,
-	// 		datatype: 'jsonp',
-	// 		contentType: 'application/json'
-	// 	}).done(function(){
-	// 		console.log(data)
-	// 	})
-
-	// 	event.preventDefault()
-	// } 
-
-	// post parsed data
-
-
-
-	// BLOG PAGE FUNCTIONS
-
-	// pulling json for blog page
-	// $.getJSON('js/posts.json', function(data){
-	// 	var stories = [];
-
-	// 	// $.each(data, function(key, val){
-	// 	// 	stories.push("<p id='" + JSON.stringify(key) + "'>" + JSON.stringify(val) + "</p>")
-	// 	// })
-
-	// 	// $("<div>", {
-	// 	// 	"class": "subway-whispers",
-	// 	// 	html: stories.join("")
-	// 	// }).appendTo('.page-wrapper');
-
-	// })
-
-	// try ajax 
-	// and then use success to return data and pass 
-	// onto another function and display it nicely 
-
-
 
 // BUGS 
 
 // when subway line is chosen, user can't choose another subway line
 // subway variable is not defined
 // make sure that dropdown list is not expanding buttons div
-
-
-*/
 
