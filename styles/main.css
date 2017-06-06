@@ -216,7 +216,7 @@ footer {
 	width: 100%;
 }
 .masonry { /* Masonry container */
-    padding: 10px;
+    padding: 0px 20px;
     column-count: 4;
     column-gap: 1em;
 }
@@ -228,7 +228,6 @@ footer {
     display: inline-block;
     font-size: 16px;
     margin: 0 0 1em;
-    height: auto;
 }
 
 .item-top {
@@ -236,6 +235,13 @@ footer {
 	letter-spacing: 1px;
 	font-weight: bold;
 	padding-bottom:10px;
+	display: inline-flex;
+	align-content: space-between;
+}
+
+.item-top > img {
+	width: 20px;
+	height: 20px;
 }
 
 .item-whisper {
@@ -254,9 +260,9 @@ footer {
 
 @media only screen and (min-width: 400px) {
     .masonry {
-        -moz-column-count: 2;
-        -webkit-column-count: 2;
-        column-count: 2;
+        -moz-column-count: 1;
+        -webkit-column-count: 1;
+        column-count: 1;
     }
 }
 
@@ -278,9 +284,9 @@ footer {
 
 @media only screen and (min-width: 1100px) {
     .masonry {
-        -moz-column-count: 5;
-        -webkit-column-count: 5;
-        column-count: 5;
+        -moz-column-count: 4;
+        -webkit-column-count: 4;
+        column-count: 4;
     }
 }
 
