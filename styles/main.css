@@ -1,21 +1,291 @@
 /* general styles */
-body {
+body, a {
 	color: #191b1c;
 	font-size: 18px;
 	font-family: 'Open Sans', sans-serif;
 }
 
-/* navbar */
-nav {
-	width: 100%;
-	height: 50px;
-	border-bottom: 1px solid #7f7f7f;
+a {
+	text-decoration: none;
 }
 
-.nav-links a {
+/* navbar */
+nav {
+	justify-content: space-between;
+	align-items: center;
+}
+
+nav, footer {
+	width: 100%;
+	height: 70px;
+	display: inline-flex;
+	font-weight: 600;
+}
+
+.nav-logo {
+	margin-left: 20px;
+}
+
+.nav-links a,
+.nav-logo h3 {
+	padding-left: 5px;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+}
+
+.nav-links li {
+	padding-right: 20px;
+	display: inline-flex;
+}
+
+.nav-links ul {
+	float: right;
+}
+
+/* main content */
+.main-content {
+	height: 100vh;
+	width: 100%;
+	display: flex;
+}
+
+.main-content {
+	justify-content: center;
+	flex-direction: column;
+	background-image: url('../assets/images/montylov-206782.jpg');
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position: top;
+}
+
+.parent-div {
+	width: 100%;
+}
+
+.main-text {
+	max-width: 50%;
+	margin: 0 auto;
+	padding-right: 50px;
+	text-align: right;
+	color: #fff;
+	font-size: 1.5em;
+	line-height: 1.5em;
+	float: right !important;
+}
+
+/* about */
+#about, 
+#whisper {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#about {
+	margin-top: 15px;
+	min-height: 400px;
+}
+
+.about-content {
+	max-width: 70%;
+	font-size: 1.5em;
+	text-align: center;
+	line-height: 1.5em;
+	font-weight: lighter;
+	color: #636363;
+}
+
+/*whisper*/
+#whisper {
+	margin: auto;
+	padding: 30px 0px;
+	min-height: 400px;
+	width: 60%;
+	align-content: center;
+	top: 0px;
+}
+
+#user-form {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+}
+
+.name-and-email {
+	display: inline-flex;
+	justify-content: space-between;
+}
+
+form > div > input {
+	margin-top: 13px;
+	padding: 0px 10px;
+	height: 30px;
+	min-width: 200px;
+	text-transform: uppercase;
+	border: 0.01em solid #595959;
+	color: #191b1c;
+}
+
+textarea {
+	margin-top: 13px;
+	padding: 10px;
+	resize: vertical;
+	overflow: auto;
 	text-transform: uppercase;
 }
 
-a {
-	text-decoration: none;
+#subway-line-btn,
+button {
+	margin-top: 13px;
+	padding: 0px 10px;
+	border-radius: 0px;
+	height: 30px;
+	width: 150px;
+	text-transform: uppercase;
+	border: none;
+	letter-spacing: 1px;
+	background-color: #191b1c;
+	color: #fff;
+}
+
+input[type="text"]:nth-child(1),
+input[type="date"] {
+	margin-right: 10px;
+}
+
+/*buttons*/
+.buttons {
+	display: inline-flex;
+}
+
+
+#subway-line-btn {
+	padding: 0px 10px;
+	height: 32px;
+}
+
+/*dropdown list*/
+.dropdown-content {
+	max-height: 150px;
+	overflow: scroll;
+	z-index: 1;
+}
+
+.dropdown-content li img {
+	height: 30px;
+	width: 30px;
+	padding: 5px;
+}
+
+.hidden {
+	display: none;
+}
+
+.active,
+.hidden {
+	padding-top: 7px;
+	max-height: 120px;
+	overflow: scroll;
+	align-content: center;
+}
+
+.active > ul > li,
+.hidden > ul > li {
+	border: 0.5px solid #bcbcbc;
+	border-top: none;
+	text-align: center;
+}
+
+/*footer*/
+footer {
+	margin-top: 10px;
+	align-items: center;
+	justify-content: center;
+}
+
+.footer-links i {
+	padding-right: 15px;
+	cursor: pointer;
+}
+
+/*BLOG PAGE STYLES*/
+
+/* masonry styles for blog page*/
+.subway-whispers,
+.masonry > div {
+	width: 100%;
+}
+.masonry { /* Masonry container */
+    padding: 10px;
+    column-count: 4;
+    column-gap: 1em;
+}
+
+.item { /* Masonry bricks or child elements */
+	padding:10px;
+    border: 0.5px solid #bcbcbc;
+    border-radius: 5px;
+    display: inline-block;
+    font-size: 16px;
+    margin: 0 0 1em;
+    height: auto;
+}
+
+.item-top {
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-weight: bold;
+	padding-bottom:10px;
+}
+
+.item-whisper {
+	text-transform: lowercase;
+	font-weight: lighter;
+	font-size: 0.9em;
+	line-height: 1.1em;
+}
+
+.item-date {
+	padding-top: 13px;
+	text-align: left;
+	font-style: italic;
+	font-size: 14px;
+}
+
+@media only screen and (min-width: 400px) {
+    .masonry {
+        -moz-column-count: 2;
+        -webkit-column-count: 2;
+        column-count: 2;
+    }
+}
+
+@media only screen and (min-width: 700px) {
+    .masonry {
+        -moz-column-count: 3;
+        -webkit-column-count: 3;
+        column-count: 3;
+    }
+}
+
+@media only screen and (min-width: 900px) {
+    .masonry {
+        -moz-column-count: 4;
+        -webkit-column-count: 4;
+        column-count: 4;
+    }
+}
+
+@media only screen and (min-width: 1100px) {
+    .masonry {
+        -moz-column-count: 5;
+        -webkit-column-count: 5;
+        column-count: 5;
+    }
+}
+
+@media only screen and (min-width: 1280px) {
+    .wrapper {
+        width: 1260px;
+    }
 }

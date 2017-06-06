@@ -18,14 +18,14 @@
 	<nav class="navbar">
 
 		<div class="nav-logo">
-			
+			<h3>Subway Whispers</h3>
 		</div><!-- nav-logo -->
 
 		<div class="nav-links">
 			<ul>
 				<li><a href="#about">About</a></li>
+				<li><a href="#whisper">Whisper</a></li>
 				<li><a href="blog.html">Blog</a></li>
-				<li><a href="#contact">Contact</a></li>
 			</ul>
 		</div><!-- nav-links -->
 	</nav>
@@ -34,35 +34,114 @@
 	<div class="page-wrapper">
 
 		<div class="main-content">
-			<h1>If you see something, say something.</h1>
-			<p>
-				This project is inspired by New York City Subway and its habitants.
-			</p>
+		 <div class="parent-div">
+				<div class="main-text">
+					<p>
+						Sometimes riding subway in New York could be a fascinating experience, you never know what you'll see the other day...
+					</p>
+				</div><!-- main-text -->
+			</div><!-- parent-div -->
 		</div><!-- main-content -->
 
 		<div id="about">
-			<p>
-				Food truck cornhole ennui humblebrag artisan. Beard cornhole hexagon, scenester master cleanse VHS put a bird on it jianbing blue bottle umami fap chambray chartreuse blog kitsch. Locavore swag hexagon, pop-up bicycle rights authentic banh mi pok pok butcher umami occupy fashion axe echo park whatever. Actually glossier prism leggings, photo booth you probably haven't heard of them offal. Tousled mixtape umami PBR&B, bicycle rights whatever bushwick tbh venmo. Chia umami skateboard, thundercats meditation intelligentsia lomo hot chicken direct trade migas microdosing. Tilde DIY kickstarter succulents, church-key twee beard stumptown tumeric.
-			</p>
+			<div class="about-content">
+				<p>
+					We all remember stories like pizza rat or high school kids dancing on the poles.
+				</p>
+				<p>
+				 What would be yours?
+				</p>
+				<p>
+					Head over to Blog section to read what fellow riders have to say.
+				</p>
+			</div>
 		</div><!-- about -->
+		
+		<!-- form -->
+		<div id="whisper">
+			<form id="user-form" enctype='text/plain'>
 
-		<div id="contact">
-			
-		</div><!--contact-->
+				<div class="name-and-email">
+					<input type="text" name="email" placeholder="Email">
+					<input type="text" name="name" placeholder="Name">
+				</div><!-- name-and-email -->
+
+				<textarea type="text" rows="10" name="whisperAbout" placeholder="What would you like to whisper about?"></textarea>
+
+				<div class="buttons">
+					<!-- date button -->
+					<input type="date" name="date">
+		
+					<!-- dropdown list with subway lines -->
+					<div class="dropdown">
+						<input type="button" name="subway" id="subway-line-btn" value="Subway Line">
+						
+						<div class="dropdown-content hidden">
+							<ul>
+								<li id='1'><img src="assets/nyc-subway-icons/svg/1.svg"></li>
+								<li id='2'><img src="assets/nyc-subway-icons/svg/2.svg"></li>
+								<li id='3'><img src="assets/nyc-subway-icons/svg/3.svg"></li>
+								<li id='4'><img src="assets/nyc-subway-icons/svg/4.svg"></li>
+								<li id='5'><img src="assets/nyc-subway-icons/svg/5.svg"></li>
+								<li id='6'><img src="assets/nyc-subway-icons/svg/6.svg"></li>
+								<li id='7'><img src="assets/nyc-subway-icons/svg/7.svg"></li>
+								<li id='a'><img src="assets/nyc-subway-icons/svg/a.svg"></li>
+								<li id='b'><img src="assets/nyc-subway-icons/svg/b.svg"></li>
+								<li id='c'><img src="assets/nyc-subway-icons/svg/c.svg"></li>
+								<li id='d'><img src="assets/nyc-subway-icons/svg/d.svg"></li>
+								<li id='e'><img src="assets/nyc-subway-icons/svg/e.svg"></li>
+								<li id='f'><img src="assets/nyc-subway-icons/svg/f.svg"></li>
+								<li id='g'><img src="assets/nyc-subway-icons/svg/g.svg"></li>
+								<li id='j'><img src="assets/nyc-subway-icons/svg/j.svg"></li>
+								<li id='l'><img src="assets/nyc-subway-icons/svg/l.svg"></li>
+								<li id='m'><img src="assets/nyc-subway-icons/svg/m.svg"></li>
+								<li id='n'><img src="assets/nyc-subway-icons/svg/n.svg"></li>
+								<li id='q'><img src="assets/nyc-subway-icons/svg/q.svg"></li>
+								<li id='r'><img src="assets/nyc-subway-icons/svg/r.svg"></li>
+								<li id='s'><img src="assets/nyc-subway-icons/svg/s.svg"></li>
+								<li id='z'><img src="assets/nyc-subway-icons/svg/z.svg"></li>
+							</ul>
+						</div><!-- dropdown-content -->
+					</div><!-- dropdown -->
+				</div><!-- buttons -->
+					
+				<button type="submit">Submit a story</button>
+			</form>
+		</div><!-- whisper -->
 
 		<footer>
 			<div class="footer-links">
-				
+
+				<a href="https://github.com/yuliyakndr"><i class="fa fa-github fa-2x" aria-hidden="true"></i></a>
+				<a href="https://angel.co/yuliyak"><i class="fa fa-angellist fa-2x" aria-hidden="true"></i></a>
+				<a href="mailto:ykandratsyeva@gmail.com"><i class="fa fa-envelope-open-o fa-2x" aria-hidden="true"></i></a>
+
 			</div><!-- footer-links -->
 		</footer>
-
 	</div><!-- page-wrapper-->
 
 	<!-- importing js files -->
-	<script src="js/main.js" type="text/javascript"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js" type="text/javascript"></script>
+	<script src="js/main.js" type="text/javascript"></script>
 	<!-- font awesome icons -->
 	<script src="https://use.fontawesome.com/dbfdc1299e.js"></script>
 
 </body>
+
+<!--
+to do: 
+- show hamburger menu when screen is resized
+- make form mobile responsive (all fields: flex-direction column)
+- slide content to clicked section
+- animate dropdown menu
+- add media queries to support screen sizes
+- come up with better description for project
+- jquery plugin for field validation 
+- how to make fileds required
+- connect to firebase backend and database
+- make a media query for whisper div: for big screens width is 60 %, for small screens 100
+- image should be centrally positioned on small screen devices
+
+-->
+
 </html>
