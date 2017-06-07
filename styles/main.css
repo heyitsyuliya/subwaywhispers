@@ -215,6 +215,7 @@ footer {
 .masonry > div {
 	width: 100%;
 }
+
 .masonry { /* Masonry container */
     padding: 0px 20px;
     column-count: 4;
