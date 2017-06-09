@@ -20,13 +20,12 @@ $(function(){
 
 		console.log(data)
 
-
 		$("<div>", {
 			html: stories.join("")
 		}).appendTo('.masonry');
 
 		function displaySubwayIcon(){
-		switch (subway){
+		switch (val.subway){
 			case '1':
 				var image = '<img src="assets/nyc-subway-icons/svg/1.svg">'
 				$('.item-top').append(image)
@@ -115,9 +114,8 @@ $(function(){
 				var image = '<img src="assets/nyc-subway-icons/svg/z.svg">';
 				$('.item-top').append(image);
 				break;
+			}
 		}
-	}
 	})
-
 });
 
